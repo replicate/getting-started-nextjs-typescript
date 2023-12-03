@@ -3,24 +3,24 @@ import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 
+import { Prediction } from "replicate";
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+
+type PromptFormEvent = React.FormEvent<HTMLFormElement> & {
+  target: { prompt: { value: string } };
+};
 
 export default function Home() {
 
-  type PromptFormEvent = React.FormEvent<HTMLFormElement> & {
-    target: { prompt: { value: string } };
-  };
-
-  type Prediction = { output: string, status: string, id: string } | null;
-
-  const [prediction, setPrediction] = useState<Prediction>(null);
+  const [prediction, setPrediction] = useState<Prediction | null>(null);
   const [error, setError] = useState(null);
 
 
   const handleSubmit = async (e: PromptFormEvent) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('prompt', e.target.prompt.value);
+    // formData.append('prompt', e.target.prompt.value);
 
     const response = await fetch("/api/predictions", {
       method: "POST",

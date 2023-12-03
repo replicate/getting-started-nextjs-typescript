@@ -1,24 +1,20 @@
+import Replicate from "replicate";
+
+const replicate = new Replicate({
+  auth: process.env.REPLICATE_API_TOKEN
+});
+
 export async function GET(request: Request,
   { params }: { params: { id: string } }) {
-  const response = await fetch(
-    "https://api.replicate.com/v1/predictions/" + params.id,
-    {
-      headers: {
-        Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-      cache: 'no-store'
-    }
-  );
-  if (response.status !== 200) {
-    let error = await response.json();
+  const prediction = await replicate.predictions.get(params.id);
+
+  if (prediction?.error) {
     return new Response(
-      JSON.stringify({ detail: error.detail }),
+      JSON.stringify({ detail: prediction.error.detail }),
       { status: 500 }
     );
   }
 
-  const prediction = await response.json();
   return new Response(
     JSON.stringify(prediction),
     { status: 200 }
