@@ -6,25 +6,18 @@ import Image from "next/image";
 import { Prediction } from "replicate";
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-
-type PromptFormEvent = React.FormEvent<HTMLFormElement> & {
-  target: { prompt: { value: string } };
-};
-
 export default function Home() {
 
   const [prediction, setPrediction] = useState<Prediction | null>(null);
   const [error, setError] = useState(null);
 
 
-  const handleSubmit = async (e: PromptFormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData();
-    // formData.append('prompt', e.target.prompt.value);
 
     const response = await fetch("/api/predictions", {
       method: "POST",
-      body: formData,
+      body: new FormData(e.currentTarget),
     });
 
     let prediction = await response.json();
