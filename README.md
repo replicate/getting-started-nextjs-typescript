@@ -17,6 +17,7 @@ You can use this as a quick jumping-off point to build a web app using Replicate
 Get a copy of this repo:
 ```console
 npx create-next-app --example https://github.com/replicate/getting-started-nextjs-typescript your-project-name
+cd your-project-name
 ```
 
 Install dependencies:
