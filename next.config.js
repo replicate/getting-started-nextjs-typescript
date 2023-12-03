@@ -1,22 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "replicate.com",
+    images: {
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'replicate.delivery',
+            port: '',
+            pathname: '/pbxt/**',
+          },
+        ],
       },
-      {
-        protocol: "https",
-        hostname: "replicate.delivery",
-      },
-      {
-        protocol: "https",
-        hostname: "*.replicate.delivery",
-      },
-    ],
-  },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
