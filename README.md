@@ -40,3 +40,5 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser.
 
 For detailed instructions on how to create and use this template, see [replicate.com/docs/get-started/nextjs](https://replicate.com/docs/get-started/nextjs)
+
+<img width="698" alt="iguana" src="https://github.com/replicate/getting-started-nextjs-typescript/assets/14337872/f40cf84f-f309-44d5-8429-9a1cda911d6d">
