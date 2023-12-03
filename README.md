@@ -9,8 +9,8 @@ You can use this as a quick jumping-off point to build a web app using Replicate
 ## Noteworthy files
 
 - [src/app/page.tsx](src/app/page.tsx) - The React frontend that renders the home page in the browser
-- [pages/api/predictions/index.tsx](pages/api/predictions/index.tsx) - The backend API endpoint that calls Replicate's API to create a prediction
-- [pages/api/predictions/[id].tsx](pages/api/predictions/[id].tsx) - The backend API endpoint that calls Replicate's API to get the prediction result
+- [src/app/api/predictions/route.ts](src/app/api/predictions/route.ts) - The backend API endpoint that calls Replicate's API to create a prediction
+- [src/app/api/predictions/[id]route.ts](src/app/api/predictions/[id]route.ts) - The backend API endpoint that calls Replicate's API to get the prediction result
 
 ## Usage
 
